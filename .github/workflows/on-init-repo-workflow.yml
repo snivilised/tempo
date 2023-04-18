@@ -16,7 +16,7 @@ jobs:
     # template repository
     #
     if: >-
-      ${{ !github.event.repository.is_template }}
+      ${{ !github.event.repository.is_template && github.event.ref == 'refs/heads/' + github.event.repository.default_branch }}
 
     runs-on: ubuntu-latest
 
@@ -39,7 +39,7 @@ jobs:
 
       - name: Self destruct
         run: |
-          rm -f .github/workflows/on-init-repo-workflow.yml
+          rm -fv .github/workflows/on-init-repo-workflow.yml 2>/dev/null
 
       - name: Add files and commit changes
         run: |
