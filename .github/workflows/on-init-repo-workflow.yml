@@ -44,7 +44,7 @@ jobs:
         run: |
           git add .
           git commit -m "Automated changes"
-          git push -u origin ${{ github.head_ref }}
+          git push -u origin ${{ github.event.repository.default_branch }}
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
