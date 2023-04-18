@@ -16,7 +16,7 @@ jobs:
     # template repository
     #
     if: >-
-      ${{ !github.event.repository.is_template && github.event.ref == 'refs/heads/' + github.event.repository.default_branch }}
+      ${{ !github.event.repository.is_template && github.event.ref == 'refs/heads/${{ github.event.repository.default_branch }}' }}
 
     runs-on: ubuntu-latest
 
