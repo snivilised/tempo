@@ -32,7 +32,7 @@ jobs:
 
       - name: Run script
         run: |
-          ./scripts/create-version-file.sh
+          . ./scripts/create-version-file.sh
           create-version-file
 
       # TODO: delete this workflow file
