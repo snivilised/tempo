@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - $default-branch
 
 permissions:
   contents: write
@@ -29,6 +29,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
 
       - name: Run script
         run: |
@@ -41,7 +43,7 @@ jobs:
         run: |
           git add .
           git commit -m "Automated changes"
-          git push -u origin master
+          git push -u origin ${{ github.head_ref }}
         shell: bash
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
