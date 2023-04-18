@@ -1,6 +1,6 @@
 name: Initialise Repo
 on:
-  workflow_dispatch:
+  create:
     branches:
       - master
 
@@ -43,7 +43,7 @@ jobs:
       - name: Add files and commit changes
         run: |
           git add .
-          git commit -m "Automated changes"
+          git commit -m "Apply initial template edits"
           git push -u origin ${{ github.event.repository.default_branch }}
         shell: bash
         env:
