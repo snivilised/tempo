@@ -1,6 +1,6 @@
 name: Initialise Repo
 on:
-  push:
+  workflow_dispatch:
     branches:
       - master
 
